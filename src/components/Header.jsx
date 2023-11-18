@@ -23,7 +23,7 @@ const Header = () => {
 
   const totalProduct = basket.reduce ((total,i) => total + i.amount,0)
   
-  const totalFavori = favorite.reduce ((total,i) => total + i.amount,0)
+  const totalFavori = favorite.reduce ((total,i) => total + 1,0)
   
 
   return (

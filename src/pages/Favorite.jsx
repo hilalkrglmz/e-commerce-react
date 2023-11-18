@@ -5,8 +5,7 @@ import { Link } from "react-router-dom";
 const Favorite = () => {
 
 const {favorite, addToFavorite, removeFromFavorite} = useContext(FavoriteContext)
-const totalFavori = favorite.reduce ((total,i) => total + i.amount,0)
-
+const totalFavori = favorite.reduce((total, item) => total + 1, 0);
   return (
     <div className="container">
       <div className="d-flex flex-column gap-5 p-2">
@@ -19,16 +18,14 @@ const totalFavori = favorite.reduce ((total,i) => total + i.amount,0)
             </div>
             <h4 className="text-truncate">{product.title}</h4>
             <h5 className="text-success">${product.price}</h5>
-            <p className="text-sm text-nowrap">Miktar:{product.amount}</p>
             <div className="d-flex gap-3">
               <button onClick={() => removeFromFavorite(product.id)} className="btn btn-danger">-</button>
-              <button onClick={() => addToFavorite(product)} className="btn btn-success d-flex align-items-center justify-content-center" style={{textAlign:'center'}}>+</button>
             </div>
           </div>
         ))}
       </div>
       <div className="border p-5 rounded my-5 fs-5">
-        <p>Sepette Ürün Miktarı: {totalFavori}</p>
+        <p>Favori Ürün Sayısı: {totalFavori}</p>
         <button style={{fontSize:'15px', border:'none'}} className="mt-3 bg-success">Toplu Ödeme Seçeneği</button>
 
       </div>
